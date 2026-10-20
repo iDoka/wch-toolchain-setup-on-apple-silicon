@@ -239,7 +239,7 @@ ch32-make info | clean | flash
 
 **What the Makefile does on its own** (like MRS2):
 
-- Finds the SDK: `../SRC` 1–4 levels up, otherwise `$CH32_SDK`.
+- Finds the SDK: `../SRC` 1..4 levels up, otherwise `$CH32_SDK`.
 - Compiles the whole `V3F/` and `V5F/` trees (not only `User/`; for example, FreeRTOS or RT-Thread sources too) and every subfolder of `Common/`.
 - Uses the project's own `Ld/` and `Startup/` when present.
 - Lets same-named project files replace SDK files. For example, `Common/Debug/debug.c` replaces `SRC/Debug/debug.c`.
@@ -464,14 +464,15 @@ Compiler settings from `*.wvproj` (398 of 402 projects are identical):
     - rejection of a macOS archive, a `.deb` and an archive with Mach-O binaries (unpacked tree removed)
 - [x] `--mcu`: every listed repository exists. SDK clone tested for CH32V307VCT6 and CH582; for CH32V307VCT6 also that the self-test and `ch32-make` are correctly skipped
 - [x] All CH32H417 EVT examples (see [the test](#test-over-the-whole-ch32h417-evt))
-- [x] macOS branch: syntax and shellcheck; steps 1–2 on Linux with stubs. The `darwin-arm64` xPack archive passes SHA-256 and is `Mach-O 64-bit arm64`
+- [x] macOS branch: syntax and shellcheck; steps 1..2 on Linux with stubs. The `darwin-arm64` xPack archive passes SHA-256 and is `Mach-O 64-bit arm64`
+- [x] Running the script on a real Mac Mini
+- [x] The architecture of WCH GCC in the macOS package
+- [x] Flashing and debugging on hardware
 
 **Not tested yet:**
 
-- [ ] Running the script on a real Mac
-- [ ] Real MounRiver archives (the MounRiver server was not reachable from the test environment)
-- [ ] The architecture of WCH GCC in the macOS package
-- [ ] Flashing and debugging on hardware
+- [ ] Reaching over the script automation MounRiver archives (the MounRiver server was not reachable from the bash script - js required)
+
 
 Reports from real hardware and Macs are welcome.
 
